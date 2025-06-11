@@ -1,0 +1,17 @@
+*.log
+*~
+.DS_Store
+.Spotlight-V100
+.Trashes
+._*
+.cache
+.vite
+Desktop.ini
+Thumbs.db
+coverage
+node_modules
+.idea
+.settings
+.sublime-*
+.vscode
+todo.md
