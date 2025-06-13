@@ -1,4 +1,4 @@
-import resolveNumericValue from '../utils/resolveNumericValue.js';
+import resolveNumericValue from '../../utils/resolveNumericValue.js';
 
 function buildDeclaration([_, negative = '', direction, size, unit = '']) {
     const value = resolveNumericValue(negative, size, unit);

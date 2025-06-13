@@ -1,5 +1,5 @@
-import lengthUnits from '../config/lengthUnits.js';
-import { directionalDeclaration } from '../utils/buildUtilityDeclarations.js';
+import lengthUnits from '../../config/lengthUnits.js';
+import { directionalDeclaration } from '../../utils/buildUtilityDeclarations.js';
 
 const gridAutoDirections = {
     rows: ['grid-auto-rows'],

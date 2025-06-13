@@ -1,4 +1,4 @@
-import { numericDeclaration, tokenDeclaration } from '../utils/buildUtilityDeclarations.js';
+import { numericDeclaration, tokenDeclaration } from '../../utils/buildUtilityDeclarations.js';
 
 export function fontFamily(tokens) {
     return [

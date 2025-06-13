@@ -1,4 +1,4 @@
-import { directionalDeclaration, numericDeclaration } from '../utils/buildUtilityDeclarations.js';
+import { directionalDeclaration, numericDeclaration } from '../../utils/buildUtilityDeclarations.js';
 
 const positionValues = ['static', 'relative', 'absolute', 'fixed', 'sticky'];
 

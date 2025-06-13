@@ -1,4 +1,4 @@
-import lengthUnits from '../config/lengthUnits.js';
+import lengthUnits from '../../config/lengthUnits.js';
 
 export const columns = [
     ['columns-auto', { columns: 'auto' }],

@@ -1,4 +1,4 @@
-import { directionalDeclaration, numericDeclaration, tokenDeclaration } from '../utils/buildUtilityDeclarations.js';
+import { directionalDeclaration, numericDeclaration, tokenDeclaration } from '../../utils/buildUtilityDeclarations.js';
 
 export function letterSpacing(tokens) {
     return [

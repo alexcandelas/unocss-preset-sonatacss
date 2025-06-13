@@ -1,4 +1,4 @@
-import { numericDeclaration } from '../utils/buildUtilityDeclarations.js';
+import { numericDeclaration } from '../../utils/buildUtilityDeclarations.js';
 
 export const flex = [
     ['flex-initial', { flex: 'initial' }],

@@ -1,4 +1,4 @@
-import { tokenDeclaration } from '../utils/buildUtilityDeclarations.js';
+import { tokenDeclaration } from '../../utils/buildUtilityDeclarations.js';
 
 export function fill(tokens) {
     return [

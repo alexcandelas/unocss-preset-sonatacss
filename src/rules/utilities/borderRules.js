@@ -1,5 +1,5 @@
-import directionsMap from '../utils/directionsMap.js';
-import { directionalDeclaration, numericDeclaration, tokenDeclaration } from '../utils/buildUtilityDeclarations.js';
+import directionsMap from '../../utils/directionsMap.js';
+import { directionalDeclaration, numericDeclaration, tokenDeclaration } from '../../utils/buildUtilityDeclarations.js';
 
 const borderWidthDirections = directionsMap('border', 'width');
 

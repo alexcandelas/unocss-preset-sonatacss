@@ -1,5 +1,5 @@
-import resolveNumericValue from '../utils/resolveNumericValue.js';
-import { directionalDeclaration, numericDeclaration } from '../utils/buildUtilityDeclarations.js';
+import resolveNumericValue from '../../utils/resolveNumericValue.js';
+import { directionalDeclaration, numericDeclaration } from '../../utils/buildUtilityDeclarations.js';
 
 const marginDirections = {
     t: ['margin-top'],

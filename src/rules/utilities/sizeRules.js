@@ -1,4 +1,4 @@
-import resolveNumericValue from '../utils/resolveNumericValue.js';
+import resolveNumericValue from '../../utils/resolveNumericValue.js';
 
 function buildDeclaration(property) {
     return ([_, prefix = '', size, unit = '']) => {
