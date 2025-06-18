@@ -11,6 +11,7 @@ function colToColumn(direction) {
 }
 
 export const gridTemplate = [
+    ['grid-cols-auto', { 'grid-template-columns': 'repeat(auto-fit, minmax(0, 1fr))' }],
     [/^grid-(rows|cols)-none$/, ([_, direction]) => ({ [`grid-template-${colToColumn(direction)}`]: 'none' })],
     [/^grid-(rows|cols)-subgrid$/, ([_, direction]) => ({ [`grid-template-${colToColumn(direction)}`]: 'subgrid' })],
     [/^grid-(rows|cols)-(\d+)$/, ([_, direction, count]) => ({ [`grid-template-${colToColumn(direction)}`]: `repeat(${count}, minmax(0, 1fr))` })],
@@ -23,6 +24,11 @@ export const gridTemplate = [
 
 export const gridSize = [
     [/^(row|col)-auto$/, ([_, direction]) => ({ [`grid-${colToColumn(direction)}`]: 'auto' })],
+    [/^(-?)(row|col)-(\d+)$/, ([_, negative = '', direction, start]) => {
+        if (Number(start) > 0) {
+            return { [`grid-${colToColumn(direction)}`]: `${negative}${start}` };
+        }
+    }],
     [/^(row|col)-span-full$/, ([_, direction]) => ({ [`grid-${colToColumn(direction)}`]: '1 / -1' })],
     [/^(row|col)-span-(\d+)$/, ([_, direction, size]) => {
         if (size !== '0') {
