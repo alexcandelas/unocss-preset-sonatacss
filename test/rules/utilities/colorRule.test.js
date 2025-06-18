@@ -1,4 +1,4 @@
-import testUtility from '../utils/testUtility.js';
+import testUtility from '../../utils/testUtility.js';
 import { it } from "vitest";
 
 const colors = {
