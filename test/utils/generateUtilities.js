@@ -10,5 +10,5 @@ export default async function (source, config = {}) {
 
     const { css } = await uno.generate(source);
 
-    return css.replace('/* layer: default */\n', '');
+    return css.replace(/^\/\* layer: (default|abstractions) \*\/\n/, '');
 }

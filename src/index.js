@@ -13,6 +13,7 @@ import { borderColor, borderWidth, radius } from './rules/utilities/borderRules.
 import { boxShadow, insetBoxShadow } from './rules/utilities/boxShadowRules.js';
 import { breaks } from './rules/utilities/breakRules.js';
 import { clear, float } from './rules/utilities/floatRules.js';
+import { col, row } from './rules/abstractions/grid.js';
 import { columns } from './rules/utilities/columnsRules.js';
 import { container } from './rules/utilities/responsiveRules.js';
 import { display } from './rules/utilities/displayRules.js';
@@ -38,6 +39,11 @@ export default definePreset(tokens => ({
     name: 'unocss-preset-sonatacss',
     tokens,
     rules: [
+        // Abstractions
+        ...col,
+        ...row,
+
+        // Utilities
         ...align,
         ...backgroundColor(tokens?.colors),
         ...borderColor(tokens?.colors),
