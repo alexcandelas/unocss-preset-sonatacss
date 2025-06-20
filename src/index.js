@@ -34,6 +34,7 @@ import { pointerEvents } from './rules/utilities/pointerEventsRules.js';
 import { ratio } from './rules/utilities/aspectRatioRules.js';
 import { translate } from './rules/utilities/translateRules.js';
 import { visibility } from './rules/utilities/visibilityRules.js';
+import { visuallyHidden } from './rules/utilities/visuallyHidden.js';
 
 export default definePreset(tokens => ({
     name: 'unocss-preset-sonatacss',
@@ -97,6 +98,7 @@ export default definePreset(tokens => ({
         ...translate,
         ...verticalAlign,
         ...visibility,
+        ...visuallyHidden,
         ...whiteSpace,
         ...width,
         ...zIndex,
