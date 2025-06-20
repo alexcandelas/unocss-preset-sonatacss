@@ -15,6 +15,7 @@ import { breaks } from './rules/utilities/breakRules.js';
 import { clear, float } from './rules/utilities/floatRules.js';
 import { col, row } from './rules/abstractions/grid.js';
 import { columns } from './rules/utilities/columnsRules.js';
+import { container as containerAbstraction } from './rules/abstractions/container.js';
 import { container } from './rules/utilities/responsiveRules.js';
 import { display } from './rules/utilities/displayRules.js';
 import { fill, stroke, strokeWidth } from './rules/utilities/svgRules.js';
@@ -25,14 +26,19 @@ import { gridAuto, gridSize, gridTemplate } from './rules/utilities/gridRules.js
 import { height, width } from './rules/utilities/sizeRules.js';
 import { isolation, zIndex } from './rules/utilities/stackingRules.js';
 import { letterSpacing, lineHeight, textAlign, textTransform, verticalAlign, whiteSpace } from './rules/utilities/textRules.js';
+import { listInline } from './rules/abstractions/listInline.js';
+import { listReset } from './rules/abstractions/listReset.js';
 import { margin, padding, space } from './rules/utilities/spacingRules.js';
+import { media } from './rules/abstractions/media.js';
 import { objectFit, objectPosition } from './rules/utilities/objectRules.js';
 import { opacity } from './rules/utilities/opacityRules.js';
 import { order } from './rules/utilities/orderRules.js';
 import { overflow } from './rules/utilities/overflowRules.js';
 import { pointerEvents } from './rules/utilities/pointerEventsRules.js';
 import { ratio } from './rules/utilities/aspectRatioRules.js';
+import { tableScroll } from './rules/abstractions/tableScroll.js';
 import { translate } from './rules/utilities/translateRules.js';
+import { truncate } from './rules/abstractions/truncate.js';
 import { visibility } from './rules/utilities/visibilityRules.js';
 import { visuallyHidden } from './rules/utilities/visuallyHidden.js';
 
@@ -42,7 +48,13 @@ export default definePreset(tokens => ({
     rules: [
         // Abstractions
         ...col,
+        ...containerAbstraction,
+        ...listInline,
+        ...listReset,
+        ...media,
         ...row,
+        ...tableScroll,
+        ...truncate,
 
         // Utilities
         ...align,
