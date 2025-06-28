@@ -8,6 +8,8 @@ it.each([
     ['p-10px', '.p-10px {padding: 10px;}'],
     ['-p-3cm', '.-p-3cm {padding: -3cm;}'],
     ['p-25%', '.p-25\\% {padding: 25%;}'],
+    ['p-container', '.p-container {padding: var(--container-padding);}'],
+    ['-p-container', '.-p-container {padding: calc(var(--container-padding) * -1);}'],
     ['p-4foo', '']
 ])('generates paddings (%s)', testUtility);
 
@@ -22,4 +24,6 @@ it.each([
     ['pbe-4', '.pbe-4 {padding-block-end: 1rem;}'],
     ['pis-4', '.pis-4 {padding-inline-start: 1rem;}'],
     ['pie-4', '.pie-4 {padding-inline-end: 1rem;}'],
+    ['px-container', '.px-container {padding-inline: var(--container-padding)}'],
+    ['-px-container', '.-px-container {padding-inline: calc(var(--container-padding) * -1)}'],
 ])('generates directional paddings (%s)', testUtility);
