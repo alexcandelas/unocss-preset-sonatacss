@@ -6,14 +6,12 @@ const marginDirections = {
     b: ['margin-bottom'],
     l: ['margin-left'],
     r: ['margin-right'],
-    x: ['margin-left', 'margin-right'],
-    y: ['margin-bottom', 'margin-top'],
+    x: ['margin-inline'],
+    y: ['margin-block'],
     bs: ['margin-block-start'],
     be: ['margin-block-end'],
     is: ['margin-inline-start'],
     ie: ['margin-inline-end'],
-    block: ['margin-block'],
-    inline: ['margin-inline'],
 };
 
 const paddingDirections = {
@@ -21,14 +19,12 @@ const paddingDirections = {
     b: ['padding-bottom'],
     l: ['padding-left'],
     r: ['padding-right'],
-    x: ['padding-left', 'padding-right'],
-    y: ['padding-bottom', 'padding-top'],
+    x: ['padding-inline'],
+    y: ['padding-block'],
     bs: ['padding-block-start'],
     be: ['padding-block-end'],
     is: ['padding-inline-start'],
     ie: ['padding-inline-end'],
-    block: ['padding-block'],
-    inline: ['padding-inline'],
 };
 
 function buildSpaceDeclarations([_, negative, direction, size, unit = '']) {
@@ -50,14 +46,11 @@ export const margin = [
     [/^(-?)m-(\d+\/\d+)$/, numericDeclaration('margin')],
     [/^(-?)m([trblxy]|[bi][se])-(\d+(?:\.\d+)?)([a-z]+|%)?$/, directionalDeclaration('margin', { propsByDirection: marginDirections })],
     [/^(-?)m([trblxy]|[bi][se])-(\d+\/\d+)$/, directionalDeclaration('margin', { propsByDirection: marginDirections })],
-    [/^(-?)m-(block|inline)-(\d+(?:\.\d+)?)([a-z]+|%)?$/, directionalDeclaration('margin', { propsByDirection: marginDirections })],
-    [/^(-?)m-(block|inline)-(\d+\/\d+)$/, directionalDeclaration('margin', { propsByDirection: marginDirections })],
 ];
 
 export const padding = [
     [/^(-?)p-(\d+(?:\.\d+)?)([a-z%]+)?$/, numericDeclaration('padding')],
     [/^(-?)p([trblxy]|[bi][se])-(\d+(?:\.\d+)?)([a-z%]+)?$/, directionalDeclaration('padding', { propsByDirection: paddingDirections })],
-    [/^(-?)p-(block|inline)-(\d+(?:\.\d+)?)([a-z%]+)?$/, directionalDeclaration('padding', { propsByDirection: paddingDirections })],
 ];
 
 export const space = [
