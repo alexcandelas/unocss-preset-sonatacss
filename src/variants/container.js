@@ -1,45 +1,6 @@
-import breakpointOrNumeric from '../utils/breakpointOrNumeric.js';
+import { buildWidthMediaQuery } from '../utils/buildMediaQueries.js';
 
-let breakpoints;
-
-function buildSingleQuery(originalMatcher, match) {
-    let [_, capture, ltSymbol, value, name] = match;
-    name = name ? ' ' + name : '';
-    const isMaxWidth = !! ltSymbol;
-    value = breakpointOrNumeric(value, breakpoints);
-
-    return {
-        matcher: originalMatcher.slice(capture.length),
-        handle: (input, next) => {
-            return next({
-                ...input,
-                parent: isMaxWidth
-                    ? `@container${name} (width < ${value})`
-                    : `@container${name} (width >= ${value})`,
-            })
-        }
-    };
-}
-
-function buildRangeQuery(originalMatcher, match) {
-    let [_, capture, from, to, name] = match;
-    name = name ? ' ' + name : '';
-    from = breakpointOrNumeric(from, breakpoints);
-    to = breakpointOrNumeric(to, breakpoints);
-
-    return {
-        matcher: originalMatcher.slice(capture.length),
-        handle: (input, next) => {
-            return next({
-                ...input,
-                parent: `@container${name} (${from} <= width < ${to})`
-            })
-        }
-    };
-}
-
-export default function (_breakpoints) {
-    breakpoints = _breakpoints;
+export default function (breakpoints) {
     const joinedBreakpoints = Object.keys(breakpoints).join('|');
     const valueCapture = `(${joinedBreakpoints}|\\d+)(?:px)?`;
     const nameCapture = '(?:\\/([\\w-]+))?';
@@ -50,18 +11,32 @@ export default function (_breakpoints) {
             // Match a container query variant using a registered breakpoint or numeric value
             // Examples: @<lg:m-4, @800px:m-4, @<1000:m-4
             const singleMatch = matcher.match(new RegExp(`^(@(<?)${valueCapture}${nameCapture}:).+$`));
+            let containerName = singleMatch?.[4];
 
             if (singleMatch) {
-                return buildSingleQuery(matcher, singleMatch);
+                return buildWidthMediaQuery({
+                    originalMatcher: matcher,
+                    match: singleMatch,
+                    breakpoints,
+                    isRanged: false,
+                    atRule: '@container' + (containerName ? ` ${containerName}` : ''),
+                });
             }
 
 
             // Match a range container query using registered breakpoints or numeric values
             // Examples: @sm<lg:m-4, @400px<700px:m-4, @400<lg:m-4
             const rangedMatch = matcher.match(new RegExp(`^(@${valueCapture}<${valueCapture}${nameCapture}:).+$`));
+            containerName = rangedMatch?.[4];
 
             if (rangedMatch) {
-                return buildRangeQuery(matcher, rangedMatch);
+                return buildWidthMediaQuery({
+                    originalMatcher: matcher,
+                    match: rangedMatch,
+                    breakpoints,
+                    isRanged: true,
+                    atRule: '@container' + (containerName ? ` ${containerName}` : ''),
+                });
             }
 
             return matcher;

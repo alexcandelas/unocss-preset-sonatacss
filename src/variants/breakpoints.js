@@ -1,43 +1,6 @@
-import breakpointOrNumeric from '../utils/breakpointOrNumeric.js';
+import { buildWidthMediaQuery } from '../utils/buildMediaQueries.js';
 
-let breakpoints;
-
-function buildSingleQuery(originalMatcher, match) {
-    let [_, capture, ltSymbol, value] = match;
-    const isMaxWidth = !! ltSymbol;
-    value = breakpointOrNumeric(value, breakpoints);
-
-    return {
-        matcher: originalMatcher.slice(capture.length),
-        handle: (input, next) => {
-            return next({
-                ...input,
-                parent: isMaxWidth
-                    ? `@media (width < ${value})`
-                    : `@media (width >= ${value})`,
-            })
-        }
-    };
-}
-
-function buildRangeQuery(originalMatcher, match) {
-    let [_, capture, from, to] = match;
-    from = breakpointOrNumeric(from, breakpoints);
-    to = breakpointOrNumeric(to, breakpoints);
-
-    return {
-        matcher: originalMatcher.slice(capture.length),
-        handle: (input, next) => {
-            return next({
-                ...input,
-                parent: `@media (${from} <= width < ${to})`
-            })
-        }
-    };
-}
-
-export default function (_breakpoints) {
-    breakpoints = _breakpoints;
+export default function (breakpoints) {
     const joinedBreakpoints = Object.keys(breakpoints).join('|');
     const valueCapture = `(${joinedBreakpoints}|\\d+)(?:px)?`;
 
@@ -49,7 +12,13 @@ export default function (_breakpoints) {
             const singleMatch = matcher.match(new RegExp(`^((<?)${valueCapture}:).+$`));
 
             if (singleMatch) {
-                return buildSingleQuery(matcher, singleMatch);
+                return buildWidthMediaQuery({
+                    originalMatcher: matcher,
+                    match: singleMatch,
+                    breakpoints,
+                    isRanged: false,
+                    atRule: '@media',
+                });
             }
 
 
@@ -58,7 +27,13 @@ export default function (_breakpoints) {
             const rangedMatch = matcher.match(new RegExp(`^(${valueCapture}<${valueCapture}:).+$`));
 
             if (rangedMatch) {
-                return buildRangeQuery(matcher, rangedMatch);
+                return buildWidthMediaQuery({
+                    originalMatcher: matcher,
+                    match: rangedMatch,
+                    breakpoints,
+                    isRanged: true,
+                    atRule: '@media',
+                });
             }
 
             return matcher;
