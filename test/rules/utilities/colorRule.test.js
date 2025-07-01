@@ -8,7 +8,6 @@ const colors = {
     'blue-50': '#008ae8',
 }
 
-
 it.each([
     ['color-current', '.color-current {color: currentColor;}'],
     ['color-transparent', '.color-transparent {color: transparent;}'],

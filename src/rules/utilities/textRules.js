@@ -2,6 +2,7 @@ import { directionalDeclaration, numericDeclaration, tokenDeclaration } from '..
 
 export function letterSpacing(tokens) {
     return [
+        [/^ls$/, tokenDeclaration('letter-spacing', { tokens })],
         [/^(-?)ls-(\d+(?:\.\d+)?)([a-z]+|%)?$/, numericDeclaration('letter-spacing')],
         [/^(-?)ls-([\w-]+)$/, ([_, negative, token]) => directionalDeclaration('letter-spacing', {
             tokens,

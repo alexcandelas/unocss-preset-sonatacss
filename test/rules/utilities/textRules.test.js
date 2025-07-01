@@ -5,6 +5,7 @@ const config = {
     letterSpacing: {
         0: '0',
         1: '0.025em',
+        DEFAULT: '0',
     },
     lineHeight: {
         base: 1.6,
@@ -15,6 +16,7 @@ const config = {
 };
 
 it.each([
+    ['ls', '.ls { letter-spacing: var(--letter-spacing); }'],
     ['ls-0', '.ls-0 { letter-spacing: var(--letter-spacing-0); }'],
     ['ls-1', '.ls-1 { letter-spacing: var(--letter-spacing-1); }'],
     ['ls-2', '.ls-2 { letter-spacing: 0.5rem; }'],
