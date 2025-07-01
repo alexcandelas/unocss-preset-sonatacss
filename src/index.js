@@ -63,6 +63,7 @@ export default definePreset(async (tokens, _ignoreList = []) => {
             // Abstractions
             ...await importAbstraction('container'),
             ...await importAbstraction('grid'),
+            ...await importAbstraction('linkOverlay'),
             ...await importAbstraction('listInline'),
             ...await importAbstraction('listReset'),
             ...await importAbstraction('media'),
