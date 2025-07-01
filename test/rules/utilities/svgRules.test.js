@@ -3,7 +3,6 @@ import { it } from "vitest";
 
 const colors = {
     white: '#fff',
-    transparent: 'transparent',
     blue: '00c',
     'blue-50': '#008ae8',
 }
@@ -11,10 +10,10 @@ const colors = {
 it.each([
     ['fill-inherit', '.fill-inherit { fill: inherit; }'],
     ['fill-current', '.fill-current { fill: currentColor; }'],
+    ['fill-transparent', '.fill-transparent { fill: transparent; }'],
     ['fill-none', '.fill-none { fill: none; }'],
     ['fill-blue', '.fill-blue { fill: var(--color-blue); }'],
     ['fill-blue-50', '.fill-blue-50 { fill: var(--color-blue-50); }'],
-    ['fill-transparent', '.fill-transparent { fill: var(--color-transparent); }'],
     ['fill-white', '.fill-white { fill: var(--color-white); }'],
     ['fill-invalid', ''],
 ])('generates fill utilities (%s)',
@@ -24,10 +23,10 @@ it.each([
 it.each([
     ['stroke-inherit', '.stroke-inherit { stroke: inherit; }'],
     ['stroke-current', '.stroke-current { stroke: currentColor; }'],
+    ['stroke-transparent', '.stroke-transparent { stroke: transparent; }'],
     ['stroke-none', '.stroke-none { stroke: none; }'],
     ['stroke-blue', '.stroke-blue { stroke: var(--color-blue); }'],
     ['stroke-blue-50', '.stroke-blue-50 { stroke: var(--color-blue-50); }'],
-    ['stroke-transparent', '.stroke-transparent { stroke: var(--color-transparent); }'],
     ['stroke-white', '.stroke-white { stroke: var(--color-white); }'],
     ['stroke-invalid', ''],
 ])('generates stroke utilities (%s)',

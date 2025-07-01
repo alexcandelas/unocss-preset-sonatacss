@@ -6,6 +6,7 @@ export function fill(tokens) {
         ['fill-inherit', { fill: 'inherit' }],
         ['fill-current', { fill: 'currentColor' }],
         ['fill-none', { fill: 'none' }],
+        ['fill-transparent', { fill: 'transparent' }],
     ];
 }
 
@@ -15,6 +16,7 @@ export function stroke(tokens) {
         ['stroke-inherit', { stroke: 'inherit' }],
         ['stroke-current', { stroke: 'currentColor' }],
         ['stroke-none', { stroke: 'none' }],
+        ['stroke-transparent', { stroke: 'transparent' }],
     ];
 }
 

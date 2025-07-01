@@ -3,7 +3,6 @@ import { it } from "vitest";
 
 const colors = {
     white: '#fff',
-    transparent: 'transparent',
     ring: '#007acddd',
     'blue-5': '#f5faff',
     'blue-50': '#008ae8',
@@ -12,6 +11,7 @@ const colors = {
 
 it.each([
     ['color-current', '.color-current {color: currentColor;}'],
+    ['color-transparent', '.color-transparent {color: transparent;}'],
     ['color-blue-50', '.color-blue-50 {color: var(--color-blue-50);}'],
     ['color-white', '.color-white {color: var(--color-white);}'],
     ['color-ring', '.color-ring {color: var(--color-ring);}'],
@@ -33,6 +33,7 @@ it('does not generate class for undefined colors',
 
 it.each([
     ['bg-current', '.bg-current {background-color: currentColor;}'],
+    ['bg-transparent', '.bg-transparent {background-color: transparent;}'],
     ['bg-blue-50', '.bg-blue-50 {background-color: var(--color-blue-50);}'],
     ['bg-white', '.bg-white {background-color: var(--color-white);}'],
     ['bg-ring', '.bg-ring {background-color: var(--color-ring);}'],

@@ -17,6 +17,7 @@ function resolve(property, colors) {
 export function color(tokens) {
     return [
         ['color-current', { color: 'currentColor' }],
+        ['color-transparent', { color: 'transparent' }],
         [/^color-([\w-]+)(?:\/(\d{1,3}))?$/, resolve('color', tokens)]
     ];
 }
@@ -24,6 +25,7 @@ export function color(tokens) {
 export function backgroundColor(tokens) {
     return [
         ['bg-current', { 'background-color': 'currentColor' }],
+        ['bg-transparent', { 'background-color': 'transparent' }],
         [/^bg-([\w-]+)(?:\/(\d{1,3}))?$/, resolve('background-color', tokens)]
     ];
 }
