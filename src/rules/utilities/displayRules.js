@@ -22,7 +22,6 @@ const displayValues = [
     'table-row-group',
 ];
 
-
 export const display = [
     ['hidden', { display: 'none' }],
     [/^d-([\w-]+)$/, ([_, value]) => {

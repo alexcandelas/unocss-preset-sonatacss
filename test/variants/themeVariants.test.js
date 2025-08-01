@@ -11,7 +11,6 @@ it.each([
     ],
 ])('generates dark theme variants (%s)', testUtility);
 
-
 it.each([
     ['light:m-4', '.light\\:m-4:where(.light, .light *) { margin: 1rem; }'],
     [

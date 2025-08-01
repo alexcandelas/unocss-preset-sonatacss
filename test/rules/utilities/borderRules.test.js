@@ -34,7 +34,6 @@ it.each([
     (source, expected) => testUtility(source, expected, config)
 );
 
-
 it.each([
     ['b-1', '.b-1 { border-width: 1px; }'],
     ['b-0', '.b-0 { border-width: 0; }'],
@@ -54,7 +53,6 @@ it.each([
     ['by-4', '.by-4 { border-block-width: 4px; }'],
     ['by-2mm', '.by-2mm { border-block-width: 2mm; }'],
 ])('generates border-width utilities (%s)', testUtility);
-
 
 it.each([
     ['b-inherit', '.b-inherit { border-color: inherit; }'],
