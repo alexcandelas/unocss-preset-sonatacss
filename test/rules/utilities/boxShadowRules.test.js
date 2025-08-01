@@ -17,24 +17,24 @@ const config = {
 
 it.each([
     ['shadow-none', `.shadow-none {
-        --util-box-shadow: 0 0; 
-        box-shadow: var(--util-inset-box-shadow, 0 0), var(--util-box-shadow, 0 0);
+        --sonata-box-shadow: 0 0; 
+        box-shadow: var(--sonata-inset-box-shadow, 0 0), var(--sonata-box-shadow, 0 0);
     }`],
     ['shadow', `.shadow {
-        --util-box-shadow: var(--box-shadow); 
-        box-shadow: var(--util-inset-box-shadow, 0 0), var(--util-box-shadow, 0 0);
+        --sonata-box-shadow: var(--box-shadow); 
+        box-shadow: var(--sonata-inset-box-shadow, 0 0), var(--sonata-box-shadow, 0 0);
     }`],
     ['shadow-xs', `.shadow-xs {
-        --util-box-shadow: var(--box-shadow-xs);
-        box-shadow: var(--util-inset-box-shadow, 0 0), var(--util-box-shadow, 0 0);
+        --sonata-box-shadow: var(--box-shadow-xs);
+        box-shadow: var(--sonata-inset-box-shadow, 0 0), var(--sonata-box-shadow, 0 0);
     }`],
     ['shadow-md', `.shadow-md {
-        --util-box-shadow: var(--box-shadow-md);
-        box-shadow: var(--util-inset-box-shadow, 0 0), var(--util-box-shadow, 0 0);
+        --sonata-box-shadow: var(--box-shadow-md);
+        box-shadow: var(--sonata-inset-box-shadow, 0 0), var(--sonata-box-shadow, 0 0);
     }`],
     ['shadow-2xl', `.shadow-2xl {
-        --util-box-shadow: var(--box-shadow-2xl);
-        box-shadow: var(--util-inset-box-shadow, 0 0), var(--util-box-shadow, 0 0);
+        --sonata-box-shadow: var(--box-shadow-2xl);
+        box-shadow: var(--sonata-inset-box-shadow, 0 0), var(--sonata-box-shadow, 0 0);
     }`],
     ['shadow-invalid', ''],
 ])('generates box-shadow utilities (%s)',
@@ -43,20 +43,20 @@ it.each([
 
 it.each([
     ['inset-shadow-none', `.inset-shadow-none {
-        --util-inset-box-shadow: 0 0;
-        box-shadow: var(--util-inset-box-shadow, 0 0), var(--util-box-shadow, 0 0);
+        --sonata-inset-box-shadow: 0 0;
+        box-shadow: var(--sonata-inset-box-shadow, 0 0), var(--sonata-box-shadow, 0 0);
     }`],
     ['inset-shadow', `.inset-shadow {
-        --util-inset-box-shadow: var(--inset-box-shadow);
-        box-shadow: var(--util-inset-box-shadow, 0 0), var(--util-box-shadow, 0 0);
+        --sonata-inset-box-shadow: var(--inset-box-shadow);
+        box-shadow: var(--sonata-inset-box-shadow, 0 0), var(--sonata-box-shadow, 0 0);
     }`],
     ['inset-shadow-2xs', `.inset-shadow-2xs {
-        --util-inset-box-shadow: var(--inset-box-shadow-2xs); 
-        box-shadow: var(--util-inset-box-shadow, 0 0), var(--util-box-shadow, 0 0);
+        --sonata-inset-box-shadow: var(--inset-box-shadow-2xs); 
+        box-shadow: var(--sonata-inset-box-shadow, 0 0), var(--sonata-box-shadow, 0 0);
     }`],
     ['inset-shadow-sm', `.inset-shadow-sm {
-        --util-inset-box-shadow: var(--inset-box-shadow-sm);
-        box-shadow: var(--util-inset-box-shadow, 0 0), var(--util-box-shadow, 0 0);
+        --sonata-inset-box-shadow: var(--inset-box-shadow-sm);
+        box-shadow: var(--sonata-inset-box-shadow, 0 0), var(--sonata-box-shadow, 0 0);
     }`],
     ['inset-shadow-invalid', ''],
 ])('generates inset box-shadow utilities (%s)',

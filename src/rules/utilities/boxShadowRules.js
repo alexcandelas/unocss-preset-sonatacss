@@ -14,8 +14,8 @@ function buildDeclaration(prop, token = '', validTokens = []) {
 
     if (resolvedValue) {
         return {
-            [`--util-${prop}`]: resolvedValue,
-            'box-shadow': `var(--util-inset-box-shadow, ${unsetValue}), var(--util-box-shadow, ${unsetValue})`
+            [`--sonata-${prop}`]: resolvedValue,
+            'box-shadow': `var(--sonata-inset-box-shadow, ${unsetValue}), var(--sonata-box-shadow, ${unsetValue})`
         };
     }
 }
