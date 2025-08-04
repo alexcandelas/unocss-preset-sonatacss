@@ -10,6 +10,7 @@ it.each([
     ['m-25%', '.m-25\\% {margin: 25%;}'],
     ['m-1/12', '.m-1\\/12 {margin: calc(1 / 12 * 100%);}'],
     ['-m-1/3', '.-m-1\\/3 {margin: calc(1 / 3 * -100%);}'],
+    ['m-auto', '.m-auto {margin: auto;}'],
     ['m-container', '.m-container {margin: var(--container-padding);}'],
     ['-m-container', '.-m-container {margin: calc(var(--container-padding) * -1);}'],
     ['m-4foo', '']
@@ -30,6 +31,7 @@ it.each([
     ['mis-4', '.mis-4 {margin-inline-start: 1rem;}'],
     ['mie-4', '.mie-4 {margin-inline-end: 1rem;}'],
     ['mie-3/5', '.mie-3\\/5 {margin-inline-end: calc(3 / 5 * 100%);}'],
+    ['mx-auto', '.mx-auto {margin-inline: auto;}'],
     ['mx-container', '.mx-container {margin-inline: var(--container-padding)}'],
     ['-mx-container', '.-mx-container {margin-inline: calc(var(--container-padding) * -1)}'],
 ])('generates directional margins (%s)', testUtility);

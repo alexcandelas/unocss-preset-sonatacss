@@ -52,6 +52,13 @@ export const margin = [
     [/^(-?)m-(\d+\/\d+)$/, numericDeclaration('margin')],
     [/^(-?)m([trblxy]|[bi][se])-(\d+(?:\.\d+)?)([a-z]+|%)?$/, directionalDeclaration('margin', { propsByDirection: marginDirections })],
     [/^(-?)m([trblxy]|[bi][se])-(\d+\/\d+)$/, directionalDeclaration('margin', { propsByDirection: marginDirections })],
+    ['m-auto', { margin: 'auto' }],
+    [/^m([trblxy]|[bi][se])-auto$/, ([_, direction]) =>
+        directionalDeclaration(
+            'margin',
+            { propsByDirection: marginDirections, forcedValue: 'auto' }
+        )([_, '', direction])
+    ],
     [/^(-?)m-container$/, ([_, negative]) => ({ margin: resolveContainerValue(negative) })],
     [/^(-?)m([trblxy]|[bi][se])-container$/, ([_, negative, direction]) =>
         directionalDeclaration(
